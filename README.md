@@ -44,12 +44,13 @@ Add a `magazines` table with columns for:
  - `pages`: how many pages in the magazine
 
 Requirements
-    - [ ] GET route to send back all magazines 
-    - [ ] POST route to add a magazine
-    - [ ] `index.html` page shows all magazines (Ajax GET)
-    - [ ] page allows you to add a new magazine (Ajax POST)
-    - [ ] Clear form on successful add of new magazine
-    - [ ] Page should refresh with up to date data after new magazine added
+
+- [ ] GET route to send back all magazines 
+- [ ] POST route to add a magazine
+- [ ] `index.html` page shows all magazines (Ajax GET)
+- [ ] page allows you to add a new magazine (Ajax POST)
+- [ ] Clear form on successful add of new magazine
+- [ ] Page should refresh with up to date data after new magazine added
 
 ### Styling
 

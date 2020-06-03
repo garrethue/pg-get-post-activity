@@ -19,6 +19,7 @@ We want to make a page to show all of our books and add new ones.
 Set up a `bookstore` database.  
 
 Add a `books` table with columns for:
+ - `id`: the primary key of the book - required, serial (see notes on how to create this)
  - `title`: the name of the book - required, allow up to 250 characters
  - `author`: the author of the book - required, allow up to 100 characters
  - `published`: the date originally published - optional 
@@ -39,6 +40,7 @@ Add a `books` table with columns for:
 ### Magazines
 
 Add a `magazines` table with columns for:
+ - `id`: the primary key (serial)
  - `title`: the name of the magazine
  - `issue_number`: the magazine issue number
  - `pages`: how many pages in the magazine

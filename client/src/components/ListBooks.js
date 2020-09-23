@@ -10,7 +10,7 @@ const ListBooks = () => {
 
       setBooks(jsonData);
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
     }
   };
 
@@ -31,8 +31,8 @@ const ListBooks = () => {
         <tbody>
           {books.map((book) => (
             <tr key={book.id}>
-              <td>{book.author}</td>
               <td>{book.title}</td>
+              <td>{book.author}</td>
               <td>{book.published}</td>
             </tr>
           ))}

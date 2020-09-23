@@ -21,24 +21,44 @@ export default class AddBook extends Component {
     this.setState({ published: newPublished });
   };
 
+  //submit form
+  onSubmitForm = async (event) => {
+    try {
+      const body = {
+        title: this.state.title,
+        author: this.state.author,
+        published: this.state.published,
+      };
+
+      const response = await fetch("http://localhost:5000/add-a-book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      console.log(response);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   render() {
     return (
       <div>
         <h1 className="text-center mt-5">Add a Book:</h1>
-        <form className="d-flex mt-5">
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.author}
-            onChange={(event) => this.changeAuthor(event.target.value)}
-            placeholder="author"
-          />
+        <form className="d-flex mt-5" onSubmit={this.onSubmitForm}>
           <input
             type="text"
             className="form-control"
             value={this.state.title}
             onChange={(event) => this.changeTitle(event.target.value)}
             placeholder="title"
+          />
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.author}
+            onChange={(event) => this.changeAuthor(event.target.value)}
+            placeholder="author"
           />
           <input
             type="text"

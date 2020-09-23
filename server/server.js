@@ -29,12 +29,12 @@ app.get("/", async (req, res) => {
 app.post("/add-a-book", async (req, res) => {
   try {
     const { title, author, published } = req.body;
-    console.log(typeof published);
+    console.log("Somone is updating data!");
     const bookAdded = await pool.query(
       "INSERT INTO books (title, author, published) VALUES ($1, $2, $3) RETURNING *",
       [title, author, published]
     );
-    res.json(bookAdded);
+    res.json(201);
   } catch (err) {
     console.error(err.message);
   }

@@ -3,11 +3,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const pool = require("./db.js");
+const cors = require("cors");
 
 // set up our static server so index.html loads on
 app.use(express.static("server/public"));
 
 // set up body parser so that our req.body is always a native JS object
+app.use(cors());
 app.use(express.json());
 
 //routes
@@ -16,6 +18,8 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   try {
     const allBooks = await pool.query("SELECT * FROM books");
+    console.log("someone is getting books!");
+    console.log(allBooks.rows);
     res.json(allBooks.rows);
   } catch (err) {
     console.log(err.message);

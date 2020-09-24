@@ -17,9 +17,9 @@ app.use(express.json());
 //GET
 app.get("/", async (req, res) => {
   try {
-    const allBooks = await pool.query("SELECT * FROM books");
-    console.log("someone is getting books!");
-    console.log(allBooks.rows);
+    const allBooks = await pool.query(
+      "select id, title, author, to_char(published, 'DD-MON-YYYY') as published from books"
+    );
     res.json(allBooks.rows);
   } catch (err) {
     console.log(err.message);
@@ -29,7 +29,6 @@ app.get("/", async (req, res) => {
 app.post("/add-a-book", async (req, res) => {
   try {
     const { title, author, published } = req.body;
-    console.log("Somone is updating data!");
     const bookAdded = await pool.query(
       "INSERT INTO books (title, author, published) VALUES ($1, $2, $3) RETURNING *",
       [title, author, published]

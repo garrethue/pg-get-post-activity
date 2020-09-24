@@ -19,13 +19,13 @@ const ListBooks = () => {
   }, []);
 
   return (
-    <div id="bookstore-table">
+    <div className="table-responsive">
       <table className="table table-bordered mt-5 text-center">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Published</th>
+            <th className="headers">Title</th>
+            <th className="headers">Author</th>
+            <th className="headers">Published</th>
           </tr>
         </thead>
         <tbody>

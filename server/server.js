@@ -45,7 +45,6 @@ app.post("/add-a-book", async (req, res) => {
 app.delete("/delete-a-book/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("someone is deleting a book!");
     const deleteBook = await pool.query("DELETE FROM books WHERE id=$1", [id]);
     res.send(200);
   } catch (err) {
@@ -54,6 +53,22 @@ app.delete("/delete-a-book/:id", async (req, res) => {
 });
 
 //PUT
+app.put("/update-read/:id", async (req, res) => {
+  try {
+    console.log("someone is updating!!!");
+
+    const { id } = req.params;
+    const { read } = req.body;
+    console.log(id, read);
+    const updateRead = await pool.query(
+      "UPDATE books SET read = $1 WHERE id = $2",
+      [read, id]
+    );
+    res.json("read was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http: //localhost:${PORT}`)

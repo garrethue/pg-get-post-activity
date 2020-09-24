@@ -5,7 +5,7 @@ CREATE TABLE books (
 	title VARCHAR(250) NOT NULL DEFAULT 'The man',
 	author VARCHAR(100) NOT NULL DEFAULT 'Garret Larson', 
 	published DATE NOT NULL DEFAULT '7/21/1992',
-	read boolean	
+	read VARCHAR(10) NOT NULL DEFAULT 'no'	
 );
 INSERT INTO books (title, author, published) 
 VALUES ('The Hearts Invisible Furies', 'John Boyne', '8/22/2017');

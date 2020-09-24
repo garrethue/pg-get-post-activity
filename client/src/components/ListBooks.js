@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ListBooks = () => {
   const [books, setBooks] = useState([]);
@@ -19,8 +19,8 @@ const ListBooks = () => {
   }, []);
 
   return (
-    <Fragment>
-      <table>
+    <div id="bookstore-table">
+      <table className="table table-bordered mt-5 text-center">
         <thead>
           <tr>
             <th>Title</th>
@@ -38,7 +38,7 @@ const ListBooks = () => {
           ))}
         </tbody>
       </table>
-    </Fragment>
+    </div>
   );
 };
 

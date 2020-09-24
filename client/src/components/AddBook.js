@@ -44,7 +44,8 @@ export default class AddBook extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center mt-5">Add a Book:</h1>
+        <h1 className="text-center mt-5">the Bookstore</h1>
+        <hr />
         <form className="d-flex mt-5" onSubmit={this.onSubmitForm}>
           <input
             type="text"

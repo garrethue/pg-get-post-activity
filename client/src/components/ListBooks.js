@@ -9,16 +9,11 @@ const ListBooks = () => {
       const jsonData = await response.json();
 
       setBooks(jsonData);
+      console.log(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
-
-  // , {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(body),
-  //   });
 
   const deleteEntry = async (id) => {
     try {
@@ -46,6 +41,7 @@ const ListBooks = () => {
             <th className="headers">Title</th>
             <th className="headers">Author</th>
             <th className="headers">Published</th>
+            <th className="headers">Read?</th>
             <th className="headers-2"></th>
           </tr>
         </thead>
@@ -55,6 +51,7 @@ const ListBooks = () => {
               <td>{book.title}</td>
               <td>{book.author}</td>
               <td>{book.published}</td>
+              <td>{book.read}</td>
               <td>
                 <button
                   className="btn btn-danger"

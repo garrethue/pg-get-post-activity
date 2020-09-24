@@ -19,7 +19,7 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   try {
     const allBooks = await pool.query(
-      "select id, title, author, to_char(published, 'DD-MON-YYYY') as published from books"
+      "select id, title, author, to_char(published, 'DD-MON-YYYY') as published, read from books"
     );
     res.json(allBooks.rows);
   } catch (err) {

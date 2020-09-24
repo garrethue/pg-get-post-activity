@@ -43,6 +43,7 @@ const ListBooks = () => {
             <th className="headers">Published</th>
             <th className="headers">Read?</th>
             <th className="headers-2"></th>
+            <th className="headers-2"></th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +53,9 @@ const ListBooks = () => {
               <td>{book.author}</td>
               <td>{book.published}</td>
               <td>{book.read}</td>
+              <td>
+                <button className="btn btn-primary">Mark as Read</button>
+              </td>
               <td>
                 <button
                   className="btn btn-danger"

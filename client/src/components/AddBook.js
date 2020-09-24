@@ -35,7 +35,6 @@ export default class AddBook extends Component {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      console.log(response);
     } catch (err) {
       console.error(err.message);
     }

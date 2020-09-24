@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const PORT = 5000;
 const pool = require("./db.js");
 const cors = require("cors");
+const { response } = require("express");
 
 // set up our static server so index.html loads on
 app.use(express.static("server/public"));
@@ -26,6 +27,7 @@ app.get("/", async (req, res) => {
   }
 });
 
+//POST
 app.post("/add-a-book", async (req, res) => {
   try {
     const { title, author, published } = req.body;
@@ -38,6 +40,18 @@ app.post("/add-a-book", async (req, res) => {
     console.error(err.message);
   }
 });
+
+//DELETE
+app.delete("/delete-a-book/:id", (req, res) => {
+  try {
+    console.log("someone is deleting a book!");
+    res.send("deleting book!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//PUT
 
 app.listen(PORT, () =>
   console.log(`Server is listening on http: //localhost:${PORT}`)

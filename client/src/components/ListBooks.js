@@ -9,7 +9,6 @@ const ListBooks = () => {
       const jsonData = await response.json();
 
       setBooks(jsonData);
-      console.log(jsonData);
     } catch (err) {
       console.error(err.message);
     }
@@ -27,6 +26,17 @@ const ListBooks = () => {
     } catch (err) {
       console.error(err.message);
     }
+  };
+
+  const updateRead = async (id) => {
+    console.log("inside read!");
+    const body = { read: "yes" };
+    const response = await fetch(`http://localhost:5000/update-read/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    window.location = "/"; //refresh the page
   };
 
   useEffect(() => {
@@ -54,7 +64,12 @@ const ListBooks = () => {
               <td>{book.published}</td>
               <td>{book.read}</td>
               <td>
-                <button className="btn btn-primary">Mark as Read</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => updateRead(book.id)}
+                >
+                  Mark as Read
+                </button>
               </td>
               <td>
                 <button

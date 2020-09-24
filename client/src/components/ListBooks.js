@@ -30,7 +30,7 @@ const ListBooks = () => {
 
   const updateRead = async (id) => {
     console.log("inside read!");
-    const body = { read: "yes" };
+    const body = { read: "read" };
     const response = await fetch(`http://localhost:5000/update-read/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

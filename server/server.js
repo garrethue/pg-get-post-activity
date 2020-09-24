@@ -42,12 +42,12 @@ app.post("/add-a-book", async (req, res) => {
 });
 
 //DELETE
-app.delete("/delete-a-book/:id", (req, res) => {
+app.delete("/delete-a-book/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
     console.log("someone is deleting a book!");
-    res.send("deleting book!");
+    const deleteBook = await pool.query("DELETE FROM books WHERE id=$1", [id]);
+    res.send(200);
   } catch (err) {
     console.error(err.message);
   }

@@ -22,18 +22,13 @@ const ListBooks = () => {
 
   const deleteEntry = async (id) => {
     try {
-      console.log(id);
-      const body = { id };
       const response = await fetch(
         `http://localhost:5000/delete-a-book/${id}`,
         {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
         }
       );
-      const jsonData = await response.json();
-      console.log(jsonData);
+      setBooks(books.filter((book) => book.id !== id));
     } catch (err) {
       console.error(err.message);
     }

@@ -24,14 +24,16 @@ const ListBooks = () => {
     try {
       console.log(id);
       const body = { id };
-      console.log(body);
-      //   const response = await fetch("http://localhost:5000/delete-a-book", {
-      //     method: "DELETE",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify(body),
-      //   });
-      //   const jsonData = await response.json();
-      //   console.log(jsonData);
+      const response = await fetch(
+        `http://localhost:5000/delete-a-book/${id}`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+      const jsonData = await response.json();
+      console.log(jsonData);
     } catch (err) {
       console.error(err.message);
     }

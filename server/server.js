@@ -44,6 +44,8 @@ app.post("/add-a-book", async (req, res) => {
 //DELETE
 app.delete("/delete-a-book/:id", (req, res) => {
   try {
+    const { id } = req.params;
+    console.log(id);
     console.log("someone is deleting a book!");
     res.send("deleting book!");
   } catch (err) {
